@@ -6,7 +6,7 @@ const Footer = () => {
         <div>
             <footer className="footer p-10 bg-lime-600 text-neutral-content">
   <div>
-    <img className="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX_-3LRclbRQuvVhzNiJSn-u5G2_Y0xehzUUiM3yBM&s" alt="" />
+    <img className="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX_-3LRclbRQuvVhzNiJSn-u5G2_Y0xehzUUiM3yBM&s" alt="logo" />
     <h1 className="text-xl font-bold">MUSIC THEORY</h1>
     <p>MUSICTHEORY Industries Ltd.<br/>Providing reliable tech since 1987</p>
   </div> 
