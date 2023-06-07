@@ -1,10 +1,9 @@
 // import React from 'react';
 
 import { useEffect, useState } from "react";
-import InstructorCart from "./InstructorCart";
+import InstructorCart from "../Home/Instructors/InstructorCart";
 
-
-const Instructors = () => {
+const AllInstructors = () => {
     const [instructors, setInstructors] = useState([]);
     useEffect(()=>{
         fetch('http://localhost:5000/instructors')
@@ -15,18 +14,17 @@ const Instructors = () => {
         })
     },[])
 
-    const topInstructor = instructors.filter(clss => clss.rate === 'popular')
     return (
         <div>
-            <h1 className="text-3xl font-bold text-center text-lime-500 mt-20">Top Rated Instructors</h1>
+            <h1 className="text-3xl font-bold text-center text-lime-500 pt-24">All Instructors</h1>
             <div className="divider mb-10 w-[60%] mx-auto"></div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 w-[90%] gap-5 mx-auto mb-10">
             {
-                topInstructor.map(inst => <InstructorCart key={inst._id} instructor={inst}></InstructorCart>)
+                instructors.map(inst => <InstructorCart key={inst._id} instructor={inst}></InstructorCart>)
             }
             </div>
         </div>
     );
 };
 
-export default Instructors;
+export default AllInstructors;

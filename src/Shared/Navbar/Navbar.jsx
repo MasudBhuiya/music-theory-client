@@ -16,7 +16,7 @@ const Navbar = () => {
 
     const navOptions = <>
     <li><Link to="/">HOME</Link></li>
-        <li><Link to="/menu">INSTRUCTORS</Link></li>
+        <li><Link to="/allinstructors">INSTRUCTORS</Link></li>
     <li><Link to="/order/salad">CLASSES</Link></li>
     {user && <li><Link to="/order/salad">DASHBOARD</Link></li>}
     </>
