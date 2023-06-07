@@ -1,9 +1,18 @@
 
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Navbar = () => {
-    const user = 'hello'
+    const {user, logOut} = useContext(AuthContext);
 
+  const handleLogOut = () =>{
+    logOut()
+    .then(()=>{})
+    .catch(error=>{
+      console.log(error.message)
+    })
+  }
 
     const navOptions = <>
     <li><Link to="/">HOME</Link></li>
@@ -37,10 +46,11 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end ga">
-  {!user ? <><li className="btn bg-lime-600 border-0 text-white hover:bg-lime-800 mr-2
+  {user ? <><li onClick={handleLogOut} className="btn bg-lime-600 border-0 text-white hover:bg-lime-800 mr-2
   "><Link>LOG OUT</Link></li></>: <li className="btn bg-lime-600 hover:bg-lime-800 border-0 text-white mr-2
   "><Link to="/login">LOGIN</Link></li>}
-    {!user ? <img src={user.photoURL} alt="" />: <img className="w-12 h-12 rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpsSYuMnSziZqiTm7N3_cuyCNbBwkLCxtgN7V6rlV4VaMUje7vpgmUDRJxQiZM7TWI7xM&usqp=CAU" alt="" />}
+    {user ? <img className="w-12 h-12 rounded-full" src={user?.photoURL
+} alt="" />: <img className="w-12 h-12 rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpsSYuMnSziZqiTm7N3_cuyCNbBwkLCxtgN7V6rlV4VaMUje7vpgmUDRJxQiZM7TWI7xM&usqp=CAU" alt="" />}
   </div>
 </div>
         </>

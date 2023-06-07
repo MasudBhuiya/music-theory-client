@@ -6,7 +6,8 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
 
 const Login = () => {
-  const [show, setShow] = useState(false)
+  const [show, setShow] = useState(false);
+  const [error, setError]= useState(null);
     const navigate = useNavigate();
     const location = useLocation();
     const { login} = useContext(AuthContext)
@@ -35,7 +36,7 @@ const Login = () => {
           navigate(from, {replace: true})
         })
         .catch(error => {
-          console.log(error)
+          setError(error.message)
         })
       }
     return (
@@ -52,13 +53,13 @@ const Login = () => {
           <label className="label">
             <span className="label-text">Email</span>
           </label>
-          <input type="email" placeholder="email" name="email" className="input input-bordered"  />
+          <input type="email" placeholder="email" name="email" className="input input-bordered border-lime-500"  />
         </div>
         <div className="form-control">
           <label className="label">
             <span className="label-text">Password</span>
           </label>
-          <input type={show ? "text" : "password"} placeholder="Enter password" name="password" className="input input-bordered input-info w-full max-w-xs mb-4" required/>
+          <input type={show ? "text" : "password"} placeholder="Enter password" name="password" className="input input-bordered border-lime-500 input-info w-full max-w-xs mb-4" required/>
             <p onClick={()=>setShow(!show)}>
                 {
                     show ? <Link className='border rounded p-1'>Hide </Link>: <Link className='border rounded p-1'>Show</Link>
@@ -70,7 +71,8 @@ const Login = () => {
           <input className="btn btn-primary bg-lime-600 border-0 hover:bg-lime-800" type="submit" value="Login" name="" id="" />
         </div>
       </form>
-      <p className='text-center mt-5 mb-5'>New Here?<Link to='/register' className='btn btn-link'>Create an account</Link></p>
+      <p className='text-center mt-5 mb-5'>New Here?<Link to='/signup' className='btn btn-link'>Create an account</Link></p>
+    <p className='text-red-500'>{error}</p>
       <SocialLogin></SocialLogin>
     </div>
   </div>

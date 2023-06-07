@@ -7,8 +7,8 @@ import { AuthContext } from "../../Providers/AuthProvider";
 const SocialLogin = () => {
     const {googleSignIn} = useContext(AuthContext);
     const navigate = useNavigate();
-    const loaction = useLocation()
-    const from = loaction.state?.from?.pathname || '/';
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/';
     const handleGoogleSignIn = ()=>{
 
         googleSignIn()
@@ -25,8 +25,9 @@ const SocialLogin = () => {
         })
         .then(res => res.json())
         .then( () => {
-            navigate(from, {replace: true})
+            
         } )
+        navigate(from, {replace: true})
         })
         .catch(error =>{
             console.log(error.message)
