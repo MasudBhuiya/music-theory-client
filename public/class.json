@@ -1,0 +1,44 @@
+[
+    {
+      "image": "https://t3.ftcdn.net/jpg/01/12/85/82/240_F_112858231_9W7qosiYv2XZkNSgw2yaCPosaZEhZKTY.jpg",
+     " name": "Acoustic Guitar",
+      "instructorName": "John Smith",
+      "availableSeats": 500,
+      "price": 900
+    },
+    {
+      "image": "https://t4.ftcdn.net/jpg/01/02/55/03/240_F_102550372_w4TK9e4JoPhCHvWtpPbRfAiwAgM5RNzD.jpg",
+      "name": "Electric Keyboard",
+      "instructorName": "Sarah Johnson",
+      "availableSeats": 350,
+      "price": 800
+    },
+    {
+      "image": "https://t3.ftcdn.net/jpg/02/46/32/32/240_F_246323274_DNLdqYCNnxIt5vuPDCJaCRRm73DLxS00.jpg",
+      "name": "Drum Set",
+      "instructorName": "Michael Davis",
+      "availableSeats": 420,
+      "price": 700
+    },
+    {
+      "image": "https://t4.ftcdn.net/jpg/00/42/93/83/240_F_42938316_jvzr5Hw5GrIEG89PQtgKwBBPxMSrdeMC.jpg",
+     " name": "Violin",
+      "instructorName": "Emily Wilson",
+      "availableSeats": 300,
+      "price": 720
+    },
+    {
+      "image": "image5.jpg",
+      "name": "Saxophone",
+      "instructorName": "David Thompson",
+      "availableSeats": 280,
+      "price": 850
+    },
+    {
+      "image": "image3.jpg",
+      "name": "Piano",
+      "instructorName": "Olivia Roberts",
+      "availableSeats": 450,
+      "price": 700
+    }
+  ]

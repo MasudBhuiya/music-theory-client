@@ -4,12 +4,17 @@ import {
 import Main from "../Layout/Main";
 import Login from "../pages/Ligin/Login";
 import SignUp from "../pages/SignUp/SignUp";
+import Home from "../pages/Home/Home/Home";
 
 export const router = createBrowserRouter([
     {
       path: "/",
       element: <Main></Main>,
       children: [
+        {
+          path: '/',
+          element: <Home></Home>
+        },
         {
           path: 'login',
           element: <Login></Login>

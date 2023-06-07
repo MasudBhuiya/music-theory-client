@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Providers/AuthProvider";
 import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
+import image from '../../assets/73812-cloud-computing-security.mp4'
 
 const Login = () => {
   const [show, setShow] = useState(false);
@@ -42,10 +43,10 @@ const Login = () => {
     return (
         <>
         <div className="hero min-h-screen bg-base-200 pt-20">
-  <div className="hero-content flex-col md:flex-row">
-    <div className="text-center md:w-1/2 lg:text-left">
-      <h1 className="text-5xl font-bold">Login now!</h1>
-      <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+  <div className="hero-content flex-col md:flex-row justify-between">
+    <div className="text-center  md:w-1/2 lg:text-left">
+      <h1 className="text-5xl font-bold mb-4">Login now!</h1>
+      <video className="" src={image}></video>
     </div>
     <div className="card  md:w-1/2 max-w-sm shadow-2xl bg-base-100">
       <form onSubmit={handleLogin} className="card-body">

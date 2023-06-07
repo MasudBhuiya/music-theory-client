@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
+// import image from '../../assets/73812-cloud-computing-security.mp4'
 
 const SignUp = () => {
     const {signUp, updateUserProfile} = useContext(AuthContext);
@@ -22,6 +23,14 @@ const SignUp = () => {
         const confirmPassword = form.confirmpassword.value;
         if(password.length < 6 && confirmPassword.length < 6){
             setError('Password is less then 6 characters');
+            return;
+        }
+        if(!/(?=.*[A-Z])/.test(password)){
+            setError('Please add at least one uppercase');
+            return;
+        }
+        else if(!/(?=.*?[#?!@$%^&*-])/.test(password)){
+            setError('please add at least a special charecter in your password');
             return;
         }
         else if(password !== confirmPassword){
