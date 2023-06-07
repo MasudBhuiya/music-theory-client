@@ -28,14 +28,14 @@
       "price": 720
     },
     {
-      "image": "image5.jpg",
+      "image": "https://img.freepik.com/free-photo/shiny-brass-trumpet-golden-style-instrument-generative-ai_188544-7809.jpg?size=626&ext=jpg&uid=R76180397&ga=GA1.2.110381157.1659454590&semt=sph",
       "name": "Saxophone",
       "instructorName": "David Thompson",
       "availableSeats": 280,
       "price": 850
     },
     {
-      "image": "image3.jpg",
+      "image": "https://img.freepik.com/free-photo/musical-keys-blue-light_169016-7175.jpg?size=626&ext=jpg&uid=R76180397&ga=GA1.2.110381157.1659454590&semt=sph",
       "name": "Piano",
       "instructorName": "Olivia Roberts",
       "availableSeats": 450,
