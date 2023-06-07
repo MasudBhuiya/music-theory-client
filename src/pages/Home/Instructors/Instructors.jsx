@@ -15,14 +15,14 @@ const Instructors = () => {
         })
     },[])
 
-    const topInstructor = instructors.filter(clss => clss.rate === 'popular')
+    // const topInstructor = instructors.filter(clss => clss.rate === 'popular')
     return (
         <div>
             <h1 className="text-3xl font-bold text-center text-lime-500 mt-20">Top Rated Instructors</h1>
             <div className="divider mb-10 w-[60%] mx-auto"></div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 w-[90%] gap-5 mx-auto mb-10">
             {
-                topInstructor.map(inst => <InstructorCart key={inst._id} instructor={inst}></InstructorCart>)
+                instructors.slice(0, 6).map(inst => <InstructorCart key={inst._id} instructor={inst}></InstructorCart>)
             }
             </div>
         </div>

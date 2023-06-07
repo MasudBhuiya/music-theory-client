@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
+import Swal from "sweetalert2";
 // import image from '../../assets/73812-cloud-computing-security.mp4'
 
 const SignUp = () => {
@@ -43,6 +44,15 @@ const SignUp = () => {
             const loggedUser = result.user;
             console.log(loggedUser);
             form.reset();
+            Swal.fire({
+                title: 'User Created Successfully.',
+                showClass: {
+                  popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                  popup: 'animate__animated animate__fadeOutUp'
+                }
+              })
             updateUserProfile( name, photo);
             navigate(from, {replace: true})
         })
