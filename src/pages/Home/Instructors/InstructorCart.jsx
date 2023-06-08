@@ -1,7 +1,7 @@
 // import React from 'react';
 
 const InstructorCart = ({instructor}) => {
-    console.log(instructor)
+    // console.log(instructor)
     const {image, name, email} = instructor;
     return (
         <div className="card flex w-80 mx-auto bg-base-100 shadow-xl">

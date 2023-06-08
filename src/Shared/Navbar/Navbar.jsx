@@ -18,7 +18,7 @@ const Navbar = () => {
     <li><Link to="/">HOME</Link></li>
         <li><Link to="/allinstructors">INSTRUCTORS</Link></li>
     <li><Link to="/allclasses">CLASSES</Link></li>
-    {user && <li><Link to="/order/salad">DASHBOARD</Link></li>}
+    {user && <li><Link to="/dashboard/myclasses">DASHBOARD</Link></li>}
     </>
     return (
         <>

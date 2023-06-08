@@ -39,19 +39,8 @@ const Classes = () => {
       const availableSeats = clas.availableSeats - 1;
       const status = 'selected'
       const update = {enroll, availableSeats, status};
-      //TODO:
-      // fetch(`http://localhost:5000/classes?email=${user.email}`,{
-      //  method: 'POST',
-      // headers: {
-      //   'content-type' : 'application/json'
-      // },
-      // body: JSON.stringify(clas)
-      // })
-      // .then(res=> res.json())
-      //   .then(data => {
-      //       console.log(data);
-      //   })
-        //
+      
+        
 
       fetch(`http://localhost:5000/classes/${clas._id}`,{
         method: 'PUT',
@@ -83,6 +72,19 @@ const Classes = () => {
             })
           }
         )
+        const id = clas._id;
+        const data = {...clas, classId: id, email:user.email}
+        fetch('http://localhost:5000/allclasses',{
+       method: 'POST',
+      headers: {
+        'content-type' : 'application/json'
+      },
+      body: JSON.stringify(data)
+      })
+      .then(res=> res.json())
+        .then(data => {
+            console.log(data);
+        })
     }
 
     // const topClass = classes.filter(clss => clss.rate === 'top')
