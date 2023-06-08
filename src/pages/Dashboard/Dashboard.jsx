@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaBook, FaHome, FaUsers, FaUtensils, FaWallet } from 'react-icons/fa';
+import { FaBook, FaCalendarAlt, FaHome, FaShoppingCart, FaUsers, FaUtensils, FaWallet } from 'react-icons/fa';
 import { NavLink, Outlet } from 'react-router-dom';
 
 const Dashboard = () => {
@@ -20,7 +20,7 @@ const Dashboard = () => {
     <ul className="menu bg-[#d1a054] p-4 w-80 h-full  ">
 
       {
-        isAdmin ? <>
+        !isAdmin ? <>
         {/* Sidebar content here */}
       <li><NavLink to="/dashboard/home"><FaHome></FaHome> Admin Home</NavLink></li>
       <li><NavLink to="/dashboard/reservations"><FaUtensils></FaUtensils> Add Items</NavLink></li>
@@ -31,10 +31,11 @@ const Dashboard = () => {
       
         </>: <>
         {/* Sidebar content here */}
-      <li><NavLink to="/dashboard/home"><FaHome></FaHome> User Home</NavLink></li>
-      <li><NavLink to="/dashboard/reservations"><FaCalendarAlt></FaCalendarAlt> Reservations</NavLink></li>
-      <li><NavLink to="/dashboard/history"><FaWallet></FaWallet> Payment History</NavLink></li>
-      <li><NavLink to="/dashboard/mycart"><FaShoppingCart></FaShoppingCart> My Cart<span className="badge badge-secondary">+{cart?.length || 0}</span></NavLink></li>
+      {/* <li><NavLink to="/dashboard/home"><FaHome></FaHome> User Home</NavLink></li>
+      <li><NavLink to="/dashboard/reservations"><FaCalendarAlt></FaCalendarAlt> Reservations</NavLink></li> */}
+      
+      <li><NavLink to="/dashboard/myclasses"> My Selected Class</NavLink></li>
+      <li><NavLink to="/dashboard/history"> Enrolled Class</NavLink></li>
         </>
       }
 

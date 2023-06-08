@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 
 const Classes = () => {
     const [classes, setClasses] = useState([]);
-    const [disables, setDisable] = useState(false)
+    const [disables, setDisable] = useState(false);
     const navigate = useNavigate()
   const location = useLocation()
     const {user} = useContext(AuthContext);
@@ -40,8 +40,6 @@ const Classes = () => {
       const status = 'selected'
       const update = {enroll, availableSeats, status};
       
-        
-
       fetch(`http://localhost:5000/classes/${clas._id}`,{
         method: 'PUT',
             headers: {
@@ -73,13 +71,13 @@ const Classes = () => {
           }
         )
         const id = clas._id;
-        const data = {...clas, classId: id, email:user.email}
+        const datas = {...clas, classId: id, email:user.email}
         fetch('http://localhost:5000/allclasses',{
        method: 'POST',
       headers: {
         'content-type' : 'application/json'
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(datas)
       })
       .then(res=> res.json())
         .then(data => {
