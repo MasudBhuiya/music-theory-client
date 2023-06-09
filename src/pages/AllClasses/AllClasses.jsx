@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import ClassCart from "../Home/Classes/ClassCart";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Providers/AuthProvider";
+import { Helmet } from "react-helmet";
 
 const AllClasses = () => {
     const [allClass, setAllClasses] = useState([]);
@@ -79,7 +80,11 @@ const AllClasses = () => {
           })
       }
     return (
+      
         <div>
+          <Helmet>
+                <title>Music Theory | All Classes</title>
+            </Helmet>
             <h1 className="text-3xl font-bold text-center text-lime-500 pt-24">All Classes</h1>
             <div className="divider mb-10 w-[60%] mx-auto"></div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 w-[90%] gap-5 mx-auto mb-10">

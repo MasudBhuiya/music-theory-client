@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { AuthContext } from '../../Providers/AuthProvider';
+import { Helmet } from 'react-helmet';
 
 const MyClass = () => {
     const [myClass, setMyClass] = useState();
@@ -21,41 +22,53 @@ const MyClass = () => {
     // const total = myClass.reduce((sum, item) => item.price + sum, 0);
 
     const handleDelete = _id => {
-        console.log(_id)
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                const url = `http://localhost:5000/allclasses/${_id}`
-                fetch(url, {
-                    method: 'DELETE'
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        if (data.deletedCount > 0) {
-                            Swal.fire(
-                                'Deleted!',
-                                'Your file has been deleted.',
-                                'success'
-                            )
-                        }
-                    })
-            }
+        fetch(`http://localhost:5000/usersclass/${_id}`,{
+            method: 'DELETE'
         })
+        .then(res => res.json())
+        .then(data => {
+            alert('success')
+            console.log(data)
+        })
+        // console.log(_id)
+        // Swal.fire({
+        //     title: 'Are you sure?',
+        //     text: "You won't be able to revert this!",
+        //     icon: 'warning',
+        //     showCancelButton: true,
+        //     confirmButtonColor: '#3085d6',
+        //     cancelButtonColor: '#d33',
+        //     confirmButtonText: 'Yes, delete it!'
+        // }).then((result) => {
+        //     if (result.isConfirmed) {
+                
+        //         fetch(`http://localhost:5000/usersclass/${_id}`, {
+        //             method: 'DELETE'
+        //         })
+        //             .then(res => res.json())
+        //             .then(data => {
+        //                 if (data.deletedCount > 0) {
+        //                     Swal.fire(
+        //                         'Deleted!',
+        //                         'Your file has been deleted.',
+        //                         'success'
+        //                     )
+        //                 }
+        //                 console.log('hello')
+        //             })
+        //     }
+        // })
     }
 
     return (
         <div className="w-full">
+            <Helmet>
+                <title>Music Theory | DashBoard | </title>
+            </Helmet>
             <div className="uppercase h-[60px] flex justify-evenly items-center">
                 <h1 className="text-xl font-bold">Total Items: </h1>
                 <h1 className="text-xl font-bold">Total Price:{}</h1>
-                <button className="btn btn-warning btn-sm">Pay</button>
+                <button className="btn btn-secondary btn-sm">Pay</button>
             </div>
             <div>
                 <div className="overflow-x-auto ">

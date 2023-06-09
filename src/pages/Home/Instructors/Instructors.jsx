@@ -17,6 +17,7 @@ const Instructors = () => {
 
     // const topInstructor = instructors.filter(clss => clss.rate === 'popular')
     return (
+        
         <div>
             <h1 className="text-3xl font-bold text-center text-lime-500 mt-20">Top Rated Instructors</h1>
             <div className="divider mb-10 w-[60%] mx-auto"></div>

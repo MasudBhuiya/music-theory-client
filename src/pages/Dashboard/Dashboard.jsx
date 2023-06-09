@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaBook, FaHome,  FaUsers, FaUtensils, FaWallet } from 'react-icons/fa';
-import { NavLink, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet } from 'react-router-dom';
 
 const Dashboard = () => {
     // const {classes} = useCart()
@@ -17,7 +17,7 @@ const Dashboard = () => {
   </div> 
   <div className="drawer-side ">
     <label htmlFor="my-drawer-2" className="drawer-overlay"></label> 
-    <ul className="menu bg-[#d1a054] p-4 w-80 h-full  ">
+    <ul className="menu bg-lime-500 p-4 w-80 h-full  ">
 
       {
         !isAdmin ? <>
@@ -47,7 +47,7 @@ const Dashboard = () => {
       <li ><NavLink to="/"><FaHome></FaHome>Home</NavLink></li>
       <li><NavLink to="/menu"> Our Menu</NavLink></li>
       <li ><NavLink to="/order/salad">Order Food</NavLink></li>
-      <li><NavLink>Contact</NavLink></li>
+      <li><Link>Contact</Link></li>
     </ul>
   
   </div>
