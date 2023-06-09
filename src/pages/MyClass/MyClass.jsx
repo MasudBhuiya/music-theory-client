@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react';
 import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { AuthContext } from '../../Providers/AuthProvider';
-import { Helmet } from 'react-helmet';
 
 const MyClass = () => {
     const [myClass, setMyClass] = useState();
@@ -61,10 +60,12 @@ const MyClass = () => {
     }
 
     return (
-        <div className="w-full">
-            <Helmet>
-                <title>Music Theory | DashBoard | </title>
+        <>
+        <Helmet>
+                <title>Music Theory | All Classes</title>
             </Helmet>
+        <div className="w-full">
+            
             <div className="uppercase h-[60px] flex justify-evenly items-center">
                 <h1 className="text-xl font-bold">Total Items: </h1>
                 <h1 className="text-xl font-bold">Total Price:{}</h1>
@@ -109,6 +110,7 @@ const MyClass = () => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 

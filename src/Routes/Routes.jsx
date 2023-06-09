@@ -10,11 +10,13 @@ import AllClasses from "../pages/AllClasses/AllClasses";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import MyClass from "../pages/MyClass/MyClass";
 import PrivateRoute from "./PrivateRoute";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
     {
       path: "/",
       element: <Main></Main>,
+      errorElement : <ErrorPage></ErrorPage>,
       children: [
         {
           path: '/',
@@ -41,6 +43,7 @@ export const router = createBrowserRouter([
     {
       path: 'dashboard',
       element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+      errorElement: <ErrorPage></ErrorPage>,
       children: [
         {
           path: 'myclasses',
