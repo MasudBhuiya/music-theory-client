@@ -16,7 +16,7 @@ const Classes = () => {
 
 
     useEffect(()=>{
-        fetch('http://localhost:5000/classes')
+        fetch('http://localhost:5000/class')
         .then(res=> res.json())
         .then(data => {
             console.log(data);
@@ -40,7 +40,7 @@ const Classes = () => {
       const status = 'selected'
       const update = {enroll, availableSeats, status};
       
-      fetch(`http://localhost:5000/classes/${clas._id}`,{
+      fetch(`http://localhost:5000/class/${clas._id}`,{
         method: 'PUT',
             headers: {
                 'content-type' : 'application/json'
@@ -52,7 +52,7 @@ const Classes = () => {
           console.log(data);
             if(data.modifiedCount > 0){
               //update state
-              fetch('http://localhost:5000/classes',{
+              fetch('http://localhost:5000/class',{
                 method: 'GET'
               })
               .then(res=>res.json())
@@ -72,7 +72,7 @@ const Classes = () => {
         )
         const id = clas._id;
         const datas = {...clas, classId: id, email:user.email}
-        fetch('http://localhost:5000/allclasses',{
+        fetch('http://localhost:5000/usersclass',{
        method: 'POST',
       headers: {
         'content-type' : 'application/json'

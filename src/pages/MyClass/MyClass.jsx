@@ -20,7 +20,8 @@ const MyClass = () => {
     //how does reduce work!!!
     // const total = myClass.reduce((sum, item) => item.price + sum, 0);
 
-    const handleDelete = item => {
+    const handleDelete = _id => {
+        console.log(_id)
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -31,13 +32,13 @@ const MyClass = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/carts/${item._id}`, {
+                const url = `http://localhost:5000/allclasses/${_id}`
+                fetch(url, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
                     .then(data => {
                         if (data.deletedCount > 0) {
-                            refetch();
                             Swal.fire(
                                 'Deleted!',
                                 'Your file has been deleted.',
@@ -84,7 +85,7 @@ const MyClass = () => {
                                         <td className="">{item.instructorName}</td>
                                         <td className="">{item.price}</td>
                                         <td>
-                                            <button onClick={() => handleDelete(item)} className="btn btn-ghost  text-white bg-red-500"><FaTrashAlt></FaTrashAlt></button>
+                                            <button onClick={() => handleDelete(item._id)} className="btn btn-ghost  text-white bg-red-500"><FaTrashAlt></FaTrashAlt></button>
                                         </td>
                                     </tr>
                                 )
