@@ -12,6 +12,7 @@ import MyClass from "../pages/MyClass/MyClass";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
+import Register from "../pages/SignUp/Register";
 
 export const router = createBrowserRouter([
     {
@@ -28,8 +29,8 @@ export const router = createBrowserRouter([
           element: <Login></Login>
         },
         {
-          path: 'signup',
-          element: <SignUp></SignUp>
+          path: 'register',
+          element: <Register></Register>
         },
         {
           path: 'allinstructors',

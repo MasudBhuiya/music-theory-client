@@ -72,7 +72,7 @@ const Login = () => {
           <input className="btn btn-primary bg-lime-600 border-0 hover:bg-lime-800" type="submit" value="Login" name="" id="" />
         </div>
       </form>
-      <p className='text-center mt-5 mb-5'>New Here?<Link to='/signup' className='btn btn-link'>Create an account</Link></p>
+      <p className='text-center mt-5 mb-5'>New Here?<Link to='/register' className='btn btn-link'>Create an account</Link></p>
     <p className='text-red-500'>{error}</p>
       <SocialLogin></SocialLogin>
     </div>
