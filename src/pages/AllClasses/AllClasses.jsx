@@ -4,13 +4,13 @@ import { useContext, useEffect, useState } from "react";
 import ClassCart from "../Home/Classes/ClassCart";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Providers/AuthProvider";
-import { Helmet } from "react-helmet";
+import useTitle from "../../Shared/useTitle";
 
 const AllClasses = () => {
     const [allClass, setAllClasses] = useState([]);
     const [disables, setDisable] = useState(false);
     const {user} = useContext(AuthContext)
-
+    useTitle('All Class')
     useEffect(()=>{
         fetch('http://localhost:5000/class')
         .then(res=> res.json())
@@ -65,8 +65,7 @@ const AllClasses = () => {
               })
             }
           )
-          const id = clas._id;
-          const datas = {...clas, classId: id, email:user.email}
+          const datas = {availableSeats: clas.availableSeats, enroll: clas.enroll, image: clas.image, instructorName: clas.instructorName, name: clas.name, price: clas.price, totalSeats: clas.totalSeats, classId:_id, email: user.email}
           fetch('http://localhost:5000/usersclass',{
          method: 'POST',
         headers: {
@@ -78,13 +77,12 @@ const AllClasses = () => {
           .then(data => {
               console.log(data);
           })
+          
       }
     return (
       
         <div>
-          <Helmet>
-                <title>Music Theory | All Classes</title>
-            </Helmet>
+          
             <h1 className="text-3xl font-bold text-center text-lime-500 pt-24">All Classes</h1>
             <div className="divider mb-10 w-[60%] mx-auto"></div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 w-[90%] gap-5 mx-auto mb-10">

@@ -35,8 +35,8 @@ const Classes = () => {
       setDisable(false);
       return;
     }
-      const enroll = clas.enroll + 1;
-      const availableSeats = clas.availableSeats - 1;
+      const enroll = enroll + 1;
+      const availableSeats = availableSeats - 1;
       const status = 'selected'
       const update = {enroll, availableSeats, status};
       
@@ -57,21 +57,21 @@ const Classes = () => {
               })
               .then(res=>res.json())
         .then(data=>{
-          console.log(data);
+          // console.log(data);
           setClasses(data)
         })
             }
+            
             Swal.fire({
               position: 'top-end',
               icon: 'success',
-              title: 'Your work has been saved',
+              title: 'Class has been selected.',
               showConfirmButton: false,
               timer: 1500
             })
           }
         )
-        const id = clas._id;
-        const datas = {...clas, classId: id, email:user.email}
+        const datas = {availableSeats: clas.availableSeats, enroll: clas.enroll, image: clas.image, instructorName: clas.instructorName, name: clas.name, price: clas.price, totalSeats: clas.totalSeats, classId:_id, email: user.email}
         fetch('http://localhost:5000/usersclass',{
        method: 'POST',
       headers: {
@@ -83,6 +83,7 @@ const Classes = () => {
         .then(data => {
             console.log(data);
         })
+        
     }
 
     // const topClass = classes.filter(clss => clss.rate === 'top')
