@@ -5,10 +5,13 @@ import ClassCart from "../Home/Classes/ClassCart";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Providers/AuthProvider";
 import useTitle from "../../Shared/useTitle";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const AllClasses = () => {
     const [allClass, setAllClasses] = useState([]);
     const [disables, setDisable] = useState(false);
+    const navigate = useNavigate();
+    const location = useLocation();
     const {user} = useContext(AuthContext)
     useTitle('All Class')
     useEffect(()=>{

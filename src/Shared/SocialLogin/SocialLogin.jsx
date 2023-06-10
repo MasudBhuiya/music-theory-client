@@ -25,9 +25,8 @@ const SocialLogin = () => {
         })
         .then(res => res.json())
         .then( () => {
-            
+                navigate(from, {replace: true})
         } )
-        navigate(from, {replace: true})
         })
         .catch(error =>{
             console.log(error.message)

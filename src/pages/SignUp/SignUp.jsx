@@ -43,7 +43,20 @@ const SignUp = () => {
         .then(result=>{
             const loggedUser = result.user;
             console.log(loggedUser);
-            form.reset();
+            updateUserProfile( name, photo);
+
+            const saveUser = {name, email}
+            fetch('http://localhost:5000/users',{
+            method: "POST",
+            headers: {
+                'content-type' : 'application/json'
+            },
+            body: JSON.stringify(saveUser)
+            })
+            .then(res => res.json())
+            .then(data => {
+                if(data.insertedId){
+                    form.reset();
             Swal.fire({
                 title: 'User Created Successfully.',
                 showClass: {
@@ -53,8 +66,11 @@ const SignUp = () => {
                   popup: 'animate__animated animate__fadeOutUp'
                 }
               })
-            updateUserProfile( name, photo);
+            
+            
             navigate(from, {replace: true})
+                }
+            })
         })
         .catch(error => {
             console.log(error);
