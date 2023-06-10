@@ -11,6 +11,7 @@ import Dashboard from "../pages/Dashboard/Dashboard";
 import MyClass from "../pages/MyClass/MyClass";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 
 export const router = createBrowserRouter([
     {
@@ -48,6 +49,10 @@ export const router = createBrowserRouter([
         {
           path: 'myclasses',
           element: <MyClass></MyClass>
+        },
+        {
+          path: 'allusers',
+          element: <AllUsers></AllUsers>
         }
       ]
     }

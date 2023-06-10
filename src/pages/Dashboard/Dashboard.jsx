@@ -7,7 +7,10 @@ import useClass from '../../hooks/useClass';
 const Dashboard = () => {
     const [classe] = useClass()
     // console.log(classes)
+
+    // TODO: load data from the server
     const isAdmin = true;
+
     return (
         <div>
         <div className="drawer lg:drawer-open ">
@@ -22,12 +25,12 @@ const Dashboard = () => {
     <ul className="menu bg-lime-500 p-4 w-80 h-full  ">
 
       {
-        !isAdmin ? <>
+        isAdmin ? <>
         {/* Sidebar content here */}
       <li><NavLink to="/dashboard/home"><FaHome></FaHome> Admin Home</NavLink></li>
-      <li><NavLink to="/dashboard/reservations"><FaUtensils></FaUtensils> Add Items</NavLink></li>
-      <li><NavLink to="/dashboard/history"><FaWallet></FaWallet> Manage Items</NavLink></li>
-      <li><NavLink to="/dashboard/history"><FaBook></FaBook> Manage Bookings</NavLink></li>
+      <li><NavLink to="/dashboard/reservations"> Add Classes</NavLink></li>
+      <li><NavLink to="/dashboard/history"> Manage Classes</NavLink></li>
+      <li><NavLink to="/dashboard/history"> Manage Classes</NavLink></li>
       
       <li><NavLink to="/dashboard/allusers"><FaUsers></FaUsers>All Users</NavLink></li>
       
