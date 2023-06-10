@@ -22,13 +22,6 @@ const MyClass = () => {
     // const total = myClass.reduce((sum, item) => item.price + sum, 0);
 
     const handleDelete = _id => {
-        fetch(`http://localhost:5000/usersclass/${_id}`,{
-            method: 'DELETE'
-        })
-        .then(res => res.json())
-        .then(data => {
-        })
-        console.log(_id)
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",

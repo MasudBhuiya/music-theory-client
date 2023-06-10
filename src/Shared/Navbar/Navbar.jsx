@@ -2,9 +2,12 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
+import useClass from "../../hooks/useClass";
+import { FaShoppingCart } from "react-icons/fa";
 
 const Navbar = () => {
     const {user, logOut} = useContext(AuthContext);
+    const [classe] = useClass();
 
   const handleLogOut = () =>{
     logOut()
@@ -18,7 +21,12 @@ const Navbar = () => {
     <li><Link to="/">HOME</Link></li>
         <li><Link to="/allinstructors">INSTRUCTORS</Link></li>
     <li><Link to="/allclasses">CLASSES</Link></li>
-    {user && <li><Link to="/dashboard/myclasses">DASHBOARD</Link></li>}
+    {user &&  <li><Link to="/dashboard/myclasses">
+    <button className="btn">
+    <span className="m-1"> <FaShoppingCart></FaShoppingCart></span>
+  <div className="badge badge-secondary">+{classe?.length || 0}</div>
+</button>
+      </Link></li>}
     </>
     return (
         <>

@@ -1,10 +1,11 @@
 import React from 'react';
-import { FaBook, FaHome,  FaUsers, FaUtensils, FaWallet } from 'react-icons/fa';
+import { FaBook, FaHome,  FaShoppingCart,  FaUsers, FaUtensils, FaWallet } from 'react-icons/fa';
 import { Link, NavLink, Outlet } from 'react-router-dom';
+import useClass from '../../hooks/useClass';
 
 
 const Dashboard = () => {
-    // const {classes} = useCart()
+    const [classe] = useClass()
     // console.log(classes)
     const isAdmin = true;
     return (
@@ -35,7 +36,7 @@ const Dashboard = () => {
       {/* <li><NavLink to="/dashboard/home"><FaHome></FaHome> User Home</NavLink></li>
       <li><NavLink to="/dashboard/reservations"><FaCalendarAlt></FaCalendarAlt> Reservations</NavLink></li> */}
       
-      <li><NavLink to="/dashboard/myclasses"> My Selected Class</NavLink></li>
+      <li><NavLink to="/dashboard/myclasses"><FaShoppingCart></FaShoppingCart> My Cart<span className="badge badge-secondary">+{classe?.length || 0}</span></NavLink></li>
       <li><NavLink to="/dashboard/history"> Enrolled Class</NavLink></li>
         </>
       }

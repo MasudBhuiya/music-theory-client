@@ -5,6 +5,7 @@ import ClassCart from "./ClassCart";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import Swal from "sweetalert2";
+import useClass from "../../../hooks/useClass";
 
 const Classes = () => {
     const [classes, setClasses] = useState([]);
@@ -12,6 +13,7 @@ const Classes = () => {
     const navigate = useNavigate()
   const location = useLocation()
     const {user} = useContext(AuthContext);
+    const [, refetch] = useClass()
     // const [, refetch] = useCart();
 
 
@@ -35,8 +37,8 @@ const Classes = () => {
       setDisable(false);
       return;
     }
-      const enroll = enroll + 1;
-      const availableSeats = availableSeats - 1;
+      const enroll = clas.enroll + 1;
+      const availableSeats = clas.availableSeats - 1;
       const status = 'selected'
       const update = {enroll, availableSeats, status};
       
@@ -57,21 +59,20 @@ const Classes = () => {
               })
               .then(res=>res.json())
         .then(data=>{
-          // console.log(data);
-          setClasses(data)
+          console.log(data);
+          setClasses(data);
         })
             }
-            
             Swal.fire({
               position: 'top-end',
               icon: 'success',
-              title: 'Class has been selected.',
+              title: 'Your work has been saved',
               showConfirmButton: false,
               timer: 1500
             })
           }
         )
-        const datas = {availableSeats: clas.availableSeats, enroll: clas.enroll, image: clas.image, instructorName: clas.instructorName, name: clas.name, price: clas.price, totalSeats: clas.totalSeats, classId:_id, email: user.email}
+        const datas = {availableSeats: clas.availableSeats, enroll: clas.enroll, image: clas.image, instructorName: clas.instructorName, name: clas.name, price: clas.price, totalSeats: clas.totalSeats, classId:clas._id, email: user.email}
         fetch('http://localhost:5000/usersclass',{
        method: 'POST',
       headers: {
@@ -81,6 +82,7 @@ const Classes = () => {
       })
       .then(res=> res.json())
         .then(data => {
+          refetch();
             console.log(data);
         })
         

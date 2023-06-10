@@ -65,7 +65,7 @@ const AllClasses = () => {
               })
             }
           )
-          const datas = {availableSeats: clas.availableSeats, enroll: clas.enroll, image: clas.image, instructorName: clas.instructorName, name: clas.name, price: clas.price, totalSeats: clas.totalSeats, classId:_id, email: user.email}
+          const datas = {availableSeats: clas.availableSeats, enroll: clas.enroll, image: clas.image, instructorName: clas.instructorName, name: clas.name, price: clas.price, totalSeats: clas.totalSeats, classId:clas._id, email: user.email}
           fetch('http://localhost:5000/usersclass',{
          method: 'POST',
         headers: {
