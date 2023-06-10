@@ -4,7 +4,7 @@ import {  FaMailBulk, FaPhoneAlt, FaWhatsapp } from 'react-icons/fa';
 const Footer = () => {
     return (
         <div>
-            <footer className="footer p-10 bg-lime-600 text-neutral-content">
+            <footer className="footer p-10 bg-sky-500 text-neutral-content">
   <div>
     <img className="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX_-3LRclbRQuvVhzNiJSn-u5G2_Y0xehzUUiM3yBM&s" alt="logo" />
     <h1 className="text-xl font-bold">MUSIC THEORY</h1>

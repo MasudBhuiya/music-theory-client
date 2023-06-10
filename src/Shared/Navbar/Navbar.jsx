@@ -54,8 +54,8 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end ga">
-  {user ? <><li onClick={handleLogOut} className="btn bg-lime-600 border-0 text-white hover:bg-lime-800 mr-2
-  "><Link>LOG OUT</Link></li></>: <li className="btn bg-lime-600 hover:bg-lime-800 border-0 text-white mr-2
+  {user ? <><li onClick={handleLogOut} className="btn bg-sky-500 border-0 text-white hover:bg-sky-800 mr-2
+  "><Link>LOG OUT</Link></li></>: <li className="btn bg-sky-500 hover:bg-sky-800 border-0 text-white mr-2
   "><Link to="/login">LOGIN</Link></li>}
     {user ? <img className="w-12 h-12 rounded-full" src={user?.photoURL
 } alt="" />: <img className="w-12 h-12 rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpsSYuMnSziZqiTm7N3_cuyCNbBwkLCxtgN7V6rlV4VaMUje7vpgmUDRJxQiZM7TWI7xM&usqp=CAU" alt="" />}

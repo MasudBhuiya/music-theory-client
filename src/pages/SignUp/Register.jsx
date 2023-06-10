@@ -11,7 +11,9 @@ const Register = () => {
   const [error, setError]= useState(null);
     const [show, setShow] = useState(false);
   const navigate = useNavigate();
-  const location = useLocation()
+  const location = useLocation();
+  const {user} = useContext(AuthContext);
+  // console.log(user)
 
   const {signUp, updateUserProfile} = useContext(AuthContext)
 
@@ -25,11 +27,11 @@ const Register = () => {
     signUp(data.email, data.password)
     .then(result=>{
       const loggedUser = result.user;
-      console.log(loggedUser);
+      // console.log(loggedUser);
       navigate(from)
       updateUserProfile(data.name, data.image)
       .then(()=>{
-        const saveUser = {name: data.name, email: data.email};
+        const saveUser = {name: loggedUser.name, email: loggedUser.email, image: loggedUser.photoURL};
         fetch('http://localhost:5000/users', {
           method: 'POST',
           headers: {

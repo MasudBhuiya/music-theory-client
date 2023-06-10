@@ -5,17 +5,18 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 const SocialLogin = () => {
-    const {googleSignIn} = useContext(AuthContext);
+    const {googleSignIn, user} = useContext(AuthContext);
+    console.log(user)
     const navigate = useNavigate();
-    const location = useLocation()
+    const location = useLocation();
     const from = location.state?.from?.pathname || '/';
     const handleGoogleSignIn = ()=>{
 
         googleSignIn()
         .then(result => {
-            const loggedInUser = result.user;
-            console.log(loggedInUser);
-            const saveUser = {name: loggedInUser.displayName, email: loggedInUser.email};
+            const loggedUser = result.user;
+            // console.log(loggedUser);
+            const saveUser = {name: loggedUser.name, email: loggedUser.email, image: loggedUser.photoURL};
             fetch('http://localhost:5000/users', {
           method: 'POST',
           headers: {

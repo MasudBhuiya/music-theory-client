@@ -82,20 +82,20 @@ const SignUp = () => {
         <form onSubmit={handleRegister} className='p-4 text-center pt-20' >
             <h1 className='text-3xl font-semibold mb-5'>Please SignUp!!!</h1>
             <p className='text-xl'>Your Name:</p>
-            <input type="text" placeholder="Your Name" name="name" className="input input-bordered border-lime-500 input-info w-full max-w-xs mb-4" required/>
+            <input type="text" placeholder="Your Name" name="name" className="input input-bordered border-sky-500 input-info w-full max-w-xs mb-4" required/>
             <p className='text-xl'>Photo URL:</p>
-            <input type="url" placeholder="Image URL" name="photo" className="input input-bordered border-lime-500 input-info w-full max-w-xs mb-4" required/>
+            <input type="url" placeholder="Image URL" name="photo" className="input input-bordered border-sky-500 input-info w-full max-w-xs mb-4" required/>
             <p className='text-xl'>Your Email:</p>
-            <input type="email" placeholder="Enter email" name="email" className="input input-bordered border-lime-500 input-info w-full max-w-xs mb-4" required/>
+            <input type="email" placeholder="Enter email" name="email" className="input input-bordered border-sky-500 input-info w-full max-w-xs mb-4" required/>
             <p className='text-xl'>Password:</p>
-            <input type={show ? "text" : "password"} placeholder="Enter password" name="password" className="input input-bordered border-lime-500 input-info w-full max-w-xs mb-4" required/>
+            <input type={show ? "text" : "password"} placeholder="Enter password" name="password" className="input input-bordered border-sky-500 input-info w-full max-w-xs mb-4" required/>
             <p onClick={()=>setShow(!show)}>
                 {
                     show ? <Link className='border rounded p-1'>Hide</Link>: <Link className='border rounded p-1'>Show</Link>
                 }
             </p>
             <p className='text-xl mt-1'>Confirm Password:</p>
-            <input type={show ? "text" : "password"} placeholder="Confirm password" name="confirmpassword" className="input input-bordered border-lime-500 input-info w-full max-w-xs mb-4" required/>
+            <input type={show ? "text" : "password"} placeholder="Confirm password" name="confirmpassword" className="input input-bordered border-sky-500 input-info w-full max-w-xs mb-4" required/>
             <p onClick={()=>setShow(!show)}>
                 {
                     show ? <Link className='border rounded p-1'>Hide</Link>: <Link className='border rounded p-1'>Show</Link>
@@ -105,7 +105,7 @@ const SignUp = () => {
             <p>If you already sign out!!! go <Link to="/login" className="btn btn-active btn-link pl-0">Login</Link></p>
             <p className='text-red-500'>{error}</p>
             <br />
-            <input className='bg-lime-600 hover:bg-lime-800 px-12 py-3 rounded font-bold text-white' type="submit" name="login" value="Register" id="" />
+            <input className='bg-sky-500 hover:bg-sky-800 px-12 py-3 rounded font-bold text-white' type="submit" name="login" value="Register" id="" />
             <p className='text-semibold mb-2'>Else register with_</p>
             <SocialLogin></SocialLogin>
             <br />

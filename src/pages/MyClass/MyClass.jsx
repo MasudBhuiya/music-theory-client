@@ -57,14 +57,14 @@ const MyClass = () => {
             <div className="uppercase h-[60px] flex justify-evenly items-center">
                 <h1 className="text-xl font-bold">Total Classes: {classe.length} </h1>
                 <h1 className="text-xl font-bold">Total Price: ${total}</h1>
-                <button className="btn  bg-lime-500 hover:bg-lime-800 btn-sm">Pay</button>
+                <button className="btn  bg-sky-500 hover:bg-sky-800 btn-sm">Pay</button>
             </div>
             <div>
                 <div className="overflow-x-auto ">
                     <table className="table w-[90%] mx-auto">
                         {/* head */}
                         <thead>
-                            <tr className="bg-lime-500">
+                            <tr className="bg-sky-500">
                                     <th>#</th>
                                 <th>Image</th>
                                 <th>Class Name</th>
