@@ -64,10 +64,10 @@ const Register = () => {
     return (
         <>
         <div className="hero min-h-screen bg-base-200">
-  <div className="hero-content flex-col lg:flex-row">
+  <div className="hero-content flex-col lg:flex-row mt-24">
     <div className="text-center lg:text-left">
-      <h1 className="text-5xl font-bold">Sign-Up now!</h1>
-      <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+      <h1 className="text-5xl font-bold mb-7 text-center">Sign-Up now!</h1>
+      <img src='https://img.freepik.com/free-vector/access-control-system-abstract-concept_335657-3180.jpg?size=626&ext=jpg&uid=R76180397&ga=GA1.1.110381157.1659454590&semt=ais' alt="" />
     </div>
     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
       <form  onSubmit={handleSubmit(onSubmit)} className="card-body">
