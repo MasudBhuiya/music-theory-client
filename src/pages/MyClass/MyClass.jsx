@@ -1,29 +1,28 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext} from 'react';
 import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { AuthContext } from '../../Providers/AuthProvider';
 import useTitle from '../../Shared/useTitle';
+import useClass from '../../hooks/useClass';
 
 const MyClass = () => {
-    const [myClass, setMyClass] = useState();
-    const {user} = useContext(AuthContext)
-    useTitle('Dashboard | My Cards')
-    useEffect(()=>{
-        fetch(`http://localhost:5000/myclasses?email=${user?.email}`)
-        .then(res  =>res.json())
-        .then(data => {
-            console.log(data);
-            setMyClass(data);
-        })
-    },[])
-    // const [cart, refetch] = useCart();
-    // console.log(cart);
-    //how does reduce work!!!
-    // const total = myClass.reduce((sum, item) => item.price + sum, 0);
+    // const [myClass, setMyClass] = useState();
+    const {user} = useContext(AuthContext);
+    const [classe, refetch] = useClass();
+    useTitle(' My Class')
 
-    const handleDelete = _id => {
+    // useEffect(()=>{
+    //     fetch(`http://localhost:5000/myclasses?email=${user?.email}`)
+    //     .then(res  =>res.json())
+    //     .then(data => {
+    //         console.log(data);
+    //         setMyClass(data);
+    //     })
+    // },[])
+
+    const handleDelete = item => {
         Swal.fire({
-            title: 'Are you sure?',
+            title: `Are you sure? You want to delete '${item.name}'`,
             text: "You won't be able to revert this!",
             icon: 'warning',
             showCancelButton: true,
@@ -33,12 +32,13 @@ const MyClass = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 
-                fetch(`http://localhost:5000/usersclass/${_id}`, {
+                fetch(`http://localhost:5000/usersclass/${item._id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
                     .then(data => {
                         if (data.deletedCount > 0) {
+                            refetch()
                             Swal.fire(
                                 'Deleted!',
                                 'Your file has been deleted.',
@@ -49,22 +49,22 @@ const MyClass = () => {
             }
         })
     }
-
+    const total = classe.reduce((sum, item) => item.price + sum, 0);
     return (
         <>
         <div className="w-full">
             
             <div className="uppercase h-[60px] flex justify-evenly items-center">
-                <h1 className="text-xl font-bold">Total Items: </h1>
-                <h1 className="text-xl font-bold">Total Price:{}</h1>
-                <button className="btn btn-secondary btn-sm">Pay</button>
+                <h1 className="text-xl font-bold">Total Classes: {classe.length} </h1>
+                <h1 className="text-xl font-bold">Total Price: ${total}</h1>
+                <button className="btn  bg-lime-500 hover:bg-lime-800 btn-sm">Pay</button>
             </div>
             <div>
                 <div className="overflow-x-auto ">
-                    <table className="table ">
+                    <table className="table w-[90%] mx-auto">
                         {/* head */}
                         <thead>
-                            <tr className="bg-slate-100">
+                            <tr className="bg-lime-500">
                                     <th>#</th>
                                 <th>Image</th>
                                 <th>Class Name</th>
@@ -75,7 +75,7 @@ const MyClass = () => {
                         </thead>
                         <tbody>
                             {
-                                myClass?.map((item, index) =>
+                                classe?.map((item, index) =>
                                     <tr key={item._id}>
                                         <td className=" text-center">
                                             {index + 1}.
@@ -87,7 +87,7 @@ const MyClass = () => {
                                         <td className="">{item.instructorName}</td>
                                         <td className="">{item.price}</td>
                                         <td>
-                                            <button onClick={() => handleDelete(item._id)} className="btn btn-ghost  text-white bg-red-500"><FaTrashAlt></FaTrashAlt></button>
+                                            <button onClick={() => handleDelete(item)} className="btn btn-ghost  text-white bg-red-500"><FaTrashAlt></FaTrashAlt></button>
                                         </td>
                                     </tr>
                                 )

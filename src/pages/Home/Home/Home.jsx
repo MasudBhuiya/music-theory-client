@@ -4,14 +4,13 @@ import { Helmet } from "react-helmet";
 import Banner from "../Banner/Banner";
 import Classes from "../Classes/Classes";
 import Instructors from "../Instructors/Instructors";
+import useTitle from "../../../Shared/useTitle";
 
 
 const Home = () => {
+    useTitle('Home')
     return (
         <div>
-            <Helmet>
-                <title>Bistro Boss | Home</title>
-            </Helmet>
             <Banner></Banner>
             <Classes></Classes>
             <Instructors></Instructors>

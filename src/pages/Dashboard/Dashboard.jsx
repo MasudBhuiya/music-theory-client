@@ -35,8 +35,8 @@ const Dashboard = () => {
         {/* Sidebar content here */}
       {/* <li><NavLink to="/dashboard/home"><FaHome></FaHome> User Home</NavLink></li>
       <li><NavLink to="/dashboard/reservations"><FaCalendarAlt></FaCalendarAlt> Reservations</NavLink></li> */}
-      
-      <li><NavLink to="/dashboard/myclasses"><FaShoppingCart></FaShoppingCart> My Cart<span className="badge badge-secondary">+{classe?.length || 0}</span></NavLink></li>
+      <li><NavLink to="/dashboard/history"><FaWallet></FaWallet> Payment History</NavLink></li>
+      <li><NavLink to="/dashboard/myclasses"><FaShoppingCart></FaShoppingCart> My Class<span className="badge badge-secondary">+{classe?.length || 0}</span></NavLink></li>
       <li><NavLink to="/dashboard/history"> Enrolled Class</NavLink></li>
         </>
       }
