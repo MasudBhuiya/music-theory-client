@@ -14,6 +14,7 @@ const AllUsers = () => {
     })
 
     const handleMakeInstructor = user =>{
+        console.log(user)
         fetch(`http://localhost:5000/users/instructor/${user._id}`, {
             method: 'PATCH'
         })
@@ -31,6 +32,18 @@ const AllUsers = () => {
                   })
             }
         })
+        const saveUser = {name: user.name, email: user.email, image: user.image};
+        fetch('http://localhost:5000/instructors',{
+         method: 'POST',
+        headers: {
+          'content-type' : 'application/json'
+        },
+        body: JSON.stringify(saveUser)
+        })
+        .then(res=> res.json())
+          .then(data => {
+              console.log(data);
+          })
     }
     const handleMakeAdmin = user =>{
         fetch(`http://localhost:5000/users/admin/${user._id}`, {

@@ -57,7 +57,6 @@ const MyClass = () => {
             <div className="uppercase h-[60px] flex justify-evenly items-center">
                 <h1 className="text-xl font-bold">Total Classes: {classe.length} </h1>
                 <h1 className="text-xl font-bold">Total Price: ${total}</h1>
-                <button className="btn  bg-sky-500 hover:bg-sky-800 btn-sm">Pay</button>
             </div>
             <div>
                 <div className="overflow-x-auto ">
@@ -70,6 +69,7 @@ const MyClass = () => {
                                 <th>Class Name</th>
                                 <th>Instructor Name</th>
                                 <th>Price</th>
+                                <th>Money</th>
                                 <th>Delete</th>
                             </tr>
                         </thead>
@@ -86,6 +86,7 @@ const MyClass = () => {
                                         <td className='text-black'>{item.name}</td>
                                         <td className="">{item.instructorName}</td>
                                         <td className="">{item.price}</td>
+                                        <td><button className="btn  bg-sky-500 hover:bg-sky-800 btn-sm text-white">Pay</button></td>
                                         <td>
                                             <button onClick={() => handleDelete(item)} className="btn btn-ghost  text-white bg-red-500"><FaTrashAlt></FaTrashAlt></button>
                                         </td>
