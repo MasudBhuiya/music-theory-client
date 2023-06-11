@@ -1,15 +1,29 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { FaBook, FaHome,  FaShoppingCart,  FaUsers, FaUtensils, FaWallet } from 'react-icons/fa';
 import { Link, NavLink, Outlet } from 'react-router-dom';
 import useClass from '../../hooks/useClass';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 
 const Dashboard = () => {
-    const [classe] = useClass()
-    // console.log(classes)
+    const [classe] = useClass();
+    const [roles, setRoles] = useState([])
+    const [role, setRole] = useState({})
+    console.log(role);
+    const {user} = useContext(AuthContext);
+    useEffect(()=>{
+      fetch(`http://localhost:5000/roleusers?email=${user.email}`)
+      .then(res => res.json())
+      .then(data => {
+        setRoles(data)
+        // console.log(data)
+      })
+    },[])
 
-    // TODO: load data from the server
-    const isAdmin = true;
+    useEffect(()=>{
+      roles.map(role => setRole(role))
+    },[roles])
+
 
     return (
         <div>
@@ -24,28 +38,34 @@ const Dashboard = () => {
     <label htmlFor="my-drawer-2" className="drawer-overlay"></label> 
     <ul className="menu bg-sky-500 p-4 w-80 h-full  ">
 
+      
       {
-        isAdmin ? <>
+          role.role === 'admin' && <>
         {/* Sidebar content here */}
-      <li><NavLink to="/dashboard/home"><FaHome></FaHome> Admin Home</NavLink></li>
-      <li><NavLink to="/dashboard/reservations"> Add Classes</NavLink></li>
+      <li><NavLink to="/dashboard/home"><FaHome></FaHome> Manage Classes</NavLink></li>
+      <li><NavLink to="/dashboard/reservations"> Manage Users</NavLink></li>
       <li><NavLink to="/dashboard/history"> Manage Classes</NavLink></li>
       <li><NavLink to="/dashboard/history"> Manage Classes</NavLink></li>
       
       <li><NavLink to="/dashboard/allusers"><FaUsers></FaUsers>All Users</NavLink></li>
-      
-        </>: <>
+        </>
+      }
+      {
+          role.role === 'instructor' && <>
         {/* Sidebar content here */}
-      {/* <li><NavLink to="/dashboard/home"><FaHome></FaHome> User Home</NavLink></li>
-      <li><NavLink to="/dashboard/reservations"><FaCalendarAlt></FaCalendarAlt> Reservations</NavLink></li> */}
+      <li><NavLink to="/dashboard/addclass"><FaHome></FaHome> Add a class</NavLink></li>
+      <li><NavLink to="/dashboard/reservations">My Classes</NavLink></li>
+      <li><NavLink to="/dashboard/history"> Total Enrolled Students</NavLink></li>
+        </>
+      }
+      {
+         !role.role  && <>
+        {/* Sidebar content here */}
       <li><NavLink to="/dashboard/history"><FaWallet></FaWallet> Payment History</NavLink></li>
-      <li><NavLink to="/dashboard/myclasses"><FaShoppingCart></FaShoppingCart> My Class<span className="badge badge-secondary">+{classe?.length || 0}</span></NavLink></li>
+      <li><NavLink to="/dashboard/myclasses"><FaShoppingCart></FaShoppingCart> My Selected Class<span className="badge badge-secondary">+{classe?.length || 0}</span></NavLink></li>
       <li><NavLink to="/dashboard/history"> Enrolled Class</NavLink></li>
         </>
       }
-
-
-      
 
 
       <div className="divider"></div>

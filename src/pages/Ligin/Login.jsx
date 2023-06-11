@@ -4,8 +4,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Providers/AuthProvider";
 import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
-import image from '../../assets/73812-cloud-computing-security.mp4'
 import { useForm } from "react-hook-form";
+import useTitle from "../../Shared/useTitle";
 
 const Login = () => {
   const { register, handleSubmit,  formState: { errors } } = useForm();
@@ -15,7 +15,7 @@ const Login = () => {
   const location = useLocation()
 
   const {login} = useContext(AuthContext)
-
+  useTitle('Login')
   const onSubmit = data => {
     console.log(data);
    

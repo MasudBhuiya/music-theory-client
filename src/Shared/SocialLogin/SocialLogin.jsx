@@ -6,7 +6,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 
 const SocialLogin = () => {
     const {googleSignIn, user} = useContext(AuthContext);
-    console.log(user)
+    // console.log(user)
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';

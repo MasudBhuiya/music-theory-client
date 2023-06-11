@@ -1,10 +1,11 @@
-import { Helmet } from "react-helmet-async";
+
 import { useForm } from "react-hook-form";
 import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Providers/AuthProvider";
 import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
+import useTitle from "../../Shared/useTitle";
 
 const Register = () => {
   const { register, handleSubmit, reset,  formState: { errors } } = useForm();
@@ -12,11 +13,9 @@ const Register = () => {
     const [show, setShow] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const {user} = useContext(AuthContext);
-  // console.log(user)
 
   const {signUp, updateUserProfile} = useContext(AuthContext)
-
+  useTitle('SignUp')
   const onSubmit = data => {
     console.log(data);
     if(data.password !== data.confirmPassword){

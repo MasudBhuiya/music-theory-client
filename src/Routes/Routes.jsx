@@ -13,6 +13,7 @@ import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 import Register from "../pages/SignUp/Register";
+import AddClass from "../pages/Instructor/AddClass/AddClass";
 
 export const router = createBrowserRouter([
     {
@@ -54,6 +55,9 @@ export const router = createBrowserRouter([
         {
           path: 'allusers',
           element: <AllUsers></AllUsers>
+        },{
+          path: 'addclass',
+          element: <AddClass></AddClass>
         }
       ]
     }
