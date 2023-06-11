@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../Providers/AuthProvider';
+import Swal from 'sweetalert2';
 
 const AddClass = () => {
     const {user} = useContext(AuthContext);
@@ -20,12 +21,18 @@ const AddClass = () => {
       headers: {
         'content-type' : 'application/json'
       },
-      body: JSON.stringify({name,  image, instructorName, email, abailableSeats: parseInt(abailableSeats), price: parseInt(price), enroll: parseInt(enroll), totalSeats: parseInt(totalSeats)})
+      body: JSON.stringify({name,  image, instructorName, email, availableSeats: parseInt(abailableSeats), price: parseInt(price), enroll: parseInt(enroll), totalSeats: parseInt(totalSeats)})
       })
       .then(res=> res.json())
-        .then(data => {
+        .then(() => {
             form.reset();
-            console.log(data);
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Your work has been saved',
+                showConfirmButton: false,
+                timer: 1500
+              })
         })
     }
 

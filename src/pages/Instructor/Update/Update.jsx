@@ -13,20 +13,17 @@ const Update = () => {
     const handleUpdate = (e) =>{
         e.preventDefault();
         const form = e.target;
+        const name = form.name.value;
         const price = form.price.value;
-        const quantity = form.quantity.value;
-        const details = form.details.value;
-        const update = {
-            price,
-            quantity,
-            details
-        }
+        const image = form.image.value;
+        const totalSeats = form.seats.value;
+        
         fetch(`https://assignment-twelve-server-gilt.vercel.app/instructors/${_id}`,{
             method: 'PUT',
             headers: {
                 'content-type' : 'application/json'
             },
-            body: JSON.stringify(update)
+            body: JSON.stringify({name, price: parseInt(price), image, totalSeats: parseInt(totalSeats)})
         })
         .then(res => res.json())
         .then(data => {
@@ -51,7 +48,7 @@ const Update = () => {
           <label className="label">
             <span className="label-text">Class Name</span>
           </label>
-          <input type="text" defaultValue={name} placeholder="Price" name='price' className="input input-bordered" />
+          <input type="text" defaultValue={name} placeholder="Class Name" name='name' className="input input-bordered" />
         </div>
         <div className="form-control">
           <label className="label">

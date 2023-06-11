@@ -41,7 +41,6 @@ const Dashboard = () => {
       {
           role.role === 'admin' && <>
         {/* Sidebar content here */}
-      <li><NavLink to="/dashboard/home"><FaHome></FaHome> Manage Classes</NavLink></li>
       <li><NavLink to="/dashboard/reservations"> Manage Users</NavLink></li>
       <li><NavLink to="/dashboard/history"> Manage Classes</NavLink></li>
       <li><NavLink to="/dashboard/allusers"><FaUsers></FaUsers>All Users</NavLink></li>
@@ -52,7 +51,6 @@ const Dashboard = () => {
         {/* Sidebar content here */}
       <li><NavLink to="/dashboard/addclass"><FaHome></FaHome> Add a class</NavLink></li>
       <li><NavLink to="/dashboard/myaddedclass">My Classes</NavLink></li>
-      <li><NavLink to="/dashboard/history"> Total Enrolled Students</NavLink></li>
         </>
       }
       {

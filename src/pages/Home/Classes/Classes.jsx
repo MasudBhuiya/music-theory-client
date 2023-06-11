@@ -10,21 +10,36 @@ import useClass from "../../../hooks/useClass";
 const Classes = () => {
     const [classes, setClasses] = useState([]);
     const [disables, setDisable] = useState(false);
+    const [roles, setRoles] = useState([])
+    const [role, setRole] = useState({})
     const navigate = useNavigate()
   const location = useLocation()
     const {user} = useContext(AuthContext);
     const [, refetch] = useClass()
-    // const [, refetch] = useCart();
+    // console.log(role);
+
+    useEffect(()=>{
+      fetch(`https://assignment-twelve-server-gilt.vercel.app/roleusers?email=${user?.email}`)
+      .then(res => res.json())
+      .then(data => {
+        setRoles(data)
+      })
+    },[roles])
+
+    useEffect(()=>{
+      roles.map(role => setRole(role))
+    },[roles])
 
 
     useEffect(()=>{
         fetch('https://assignment-twelve-server-gilt.vercel.app/class')
         .then(res=> res.json())
         .then(data => {
-            console.log(data);
+            // console.log(data);
             setClasses(data)
         })
     },[]);
+
 
 
     const handleSelect = clas =>{
@@ -34,9 +49,18 @@ const Classes = () => {
       }
       console.log()
      if(clas.availableSeats === 0){
-      setDisable(false);
+      setDisable(true);
       return;
     }
+    if(role.role === 'admin' ){
+      setDisable(true);
+      return;
+    }
+    if(role.role === 'instructor' ){
+      setDisable(true);
+      return;
+    }
+
       // const enroll = clas.enroll + 1;
       // const availableSeats = clas.availableSeats - 1;
       // const status = 'selected'
