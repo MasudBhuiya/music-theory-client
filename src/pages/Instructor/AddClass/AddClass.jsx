@@ -13,14 +13,14 @@ const AddClass = () => {
         const abailableSeats = form.seats.value;
         const price = form.price.value;
         const enroll = form.enroll.value;
-        const newclass = {name, image, instructorName, email, abailableSeats, price, enroll};
+        const totalSeats = form.total.value;
 
         fetch('https://assignment-twelve-server-gilt.vercel.app/class',{
        method: 'POST',
       headers: {
         'content-type' : 'application/json'
       },
-      body: JSON.stringify(newclass)
+      body: JSON.stringify({name,  image, instructorName, email, abailableSeats: parseInt(abailableSeats), price: parseInt(price), enroll: parseInt(enroll), totalSeats: parseInt(totalSeats)})
       })
       .then(res=> res.json())
         .then(data => {

@@ -51,7 +51,7 @@ const Dashboard = () => {
           role.role === 'instructor' && <>
         {/* Sidebar content here */}
       <li><NavLink to="/dashboard/addclass"><FaHome></FaHome> Add a class</NavLink></li>
-      <li><NavLink to="/dashboard/reservations">My Classes</NavLink></li>
+      <li><NavLink to="/dashboard/myaddedclass">My Classes</NavLink></li>
       <li><NavLink to="/dashboard/history"> Total Enrolled Students</NavLink></li>
         </>
       }

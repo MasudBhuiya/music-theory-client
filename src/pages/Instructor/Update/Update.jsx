@@ -51,25 +51,25 @@ const Update = () => {
           <label className="label">
             <span className="label-text">Class Name</span>
           </label>
-          <input type="text" defaultValue={price} placeholder="Price" name='price' className="input input-bordered" />
+          <input type="text" defaultValue={name} placeholder="Price" name='price' className="input input-bordered" />
         </div>
         <div className="form-control">
           <label className="label">
             <span className="label-text">Class Image</span>
           </label>
-          <input type="url" defaultValue={quantity} placeholder="Photo URL" name='image' className="input input-bordered" />
+          <input type="url" defaultValue={image} placeholder="Photo URL" name='image' className="input input-bordered" />
         </div>
         <div className="form-control">
         <label className="label">
             <span className="label-text">Price</span>
           </label>
-          <input type="number" defaultValue={quantity} placeholder="Price" name='price' className="input input-bordered" />
+          <input type="number" defaultValue={price} placeholder="Price" name='price' className="input input-bordered" />
         </div>
         <div className="form-control">
         <label className="label">
             <span className="label-text">Total Seats</span>
           </label>
-          <input type="number" defaultValue={quantity} placeholder="Total Seats" name='seats' className="input input-bordered" />
+          <input type="number" defaultValue={totalSeats} placeholder="Total Seats" name='seats' className="input input-bordered" />
         </div>
 
         <div className="form-control mt-6">
