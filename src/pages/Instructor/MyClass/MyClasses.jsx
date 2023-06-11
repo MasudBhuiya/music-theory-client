@@ -1,14 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../Providers/AuthProvider';
-import { FaTrashAlt } from 'react-icons/fa';
+import { FaEdit } from 'react-icons/fa';
+import { Link,  } from 'react-router-dom';
 
 const MyClasses = () => {
     const {user} = useContext(AuthContext);
-    const [addedclass, setAddedclass] = useState([])
+    const [addedclass, setAddedclass] = useState([]);
 
 
     useEffect(()=>{
-            fetch(`http://localhost:5000/myaddedclass?email=${user?.email}`)
+            fetch(`https://assignment-twelve-server-gilt.vercel.app/myaddedclass?email=${user?.email}`)
             .then(res  =>res.json())
             .then(data => {
                 console.log(data);
@@ -50,7 +51,7 @@ const MyClasses = () => {
                                         <td className="">{item.enroll}</td>
                                         <td className="">{item.price}</td>
                                         <td>
-                                            <button onClick={() => handleDelete(item)} className="btn btn-ghost  text-white bg-red-500"><FaTrashAlt></FaTrashAlt></button>
+                                            <Link to={(`/dashboard/update/${item._id}`)} className="btn btn-sm "><FaEdit></FaEdit></Link>
                                         </td>
                                     </tr>
                                 )

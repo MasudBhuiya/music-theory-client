@@ -1,0 +1,56 @@
+[
+    {
+      "image": "https://t3.ftcdn.net/jpg/01/12/85/82/240_F_112858231_9W7qosiYv2XZkNSgw2yaCPosaZEhZKTY.jpg",
+     " name": "Acoustic Guitar",
+      "instructorName": "John Smith",
+      "price": 900,
+      "availableSeats": 30,
+      "enroll": 70,
+      "totalSeats": 100
+    },
+    {
+      "image": "https://t4.ftcdn.net/jpg/01/02/55/03/240_F_102550372_w4TK9e4JoPhCHvWtpPbRfAiwAgM5RNzD.jpg",
+      "name": "Electric Keyboard",
+      "instructorName": "Sarah Johnson",
+      "availableSeats": 35,
+      "price": 800,
+      "enroll": 65,
+      "totalSeats": 100
+    },
+    {
+      "image": "https://t3.ftcdn.net/jpg/02/46/32/32/240_F_246323274_DNLdqYCNnxIt5vuPDCJaCRRm73DLxS00.jpg",
+      "name": "Drum Set",
+      "instructorName": "Michael Davis",
+      "availableSeats": 42,
+      "price": 700,
+      "enroll": 58,
+      "totalSeats": 100
+    },
+    {
+      "image": "https://t4.ftcdn.net/jpg/00/42/93/83/240_F_42938316_jvzr5Hw5GrIEG89PQtgKwBBPxMSrdeMC.jpg",
+     " name": "Violin",
+      "instructorName": "Emily Wilson",
+      "availableSeats": 30,
+      "price": 720,
+      "enroll": 70,
+      "totalSeats": 100
+    },
+    {
+      "image": "https://img.freepik.com/free-photo/shiny-brass-trumpet-golden-style-instrument-generative-ai_188544-7809.jpg?size=626&ext=jpg&uid=R76180397&ga=GA1.2.110381157.1659454590&semt=sph",
+      "name": "Saxophone",
+      "instructorName": "David Thompson",
+      "availableSeats": 28,
+      "price": 850,
+      "enroll": 72,
+      "totalSeats": 100
+    },
+    {
+      "image": "https://img.freepik.com/free-photo/musical-keys-blue-light_169016-7175.jpg?size=626&ext=jpg&uid=R76180397&ga=GA1.2.110381157.1659454590&semt=sph",
+      "name": "Piano",
+      "instructorName": "Olivia Roberts",
+      "availableSeats": 45,
+      "price": 700,
+      "enroll": 55,
+      "totalSeats": 100
+    }
+  ]

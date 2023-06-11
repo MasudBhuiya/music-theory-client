@@ -6,7 +6,7 @@ const useClass = () =>{
     const { refetch, data: classe = [] } = useQuery({
         queryKey: ['usersclass', user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/myclasses?email=${user?.email}`)
+            const res = await fetch(`https://assignment-twelve-server-gilt.vercel.app/myclasses?email=${user?.email}`)
             // console.log('res from axios', res)
             return res.json();
         },

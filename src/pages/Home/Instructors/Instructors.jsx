@@ -7,7 +7,7 @@ import InstructorCart from "./InstructorCart";
 const Instructors = () => {
     const [instructors, setInstructors] = useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/instructors')
+        fetch('https://assignment-twelve-server-gilt.vercel.app/instructors')
         .then(res=> res.json())
         .then(data => {
             // console.log(data);

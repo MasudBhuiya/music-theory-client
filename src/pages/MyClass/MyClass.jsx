@@ -12,7 +12,7 @@ const MyClass = () => {
     useTitle(' My Class')
 
     // useEffect(()=>{
-    //     fetch(`http://localhost:5000/myclasses?email=${user?.email}`)
+    //     fetch(`https://assignment-twelve-server-gilt.vercel.app/myclasses?email=${user?.email}`)
     //     .then(res  =>res.json())
     //     .then(data => {
     //         console.log(data);
@@ -32,7 +32,7 @@ const MyClass = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 
-                fetch(`http://localhost:5000/usersclass/${item._id}`, {
+                fetch(`https://assignment-twelve-server-gilt.vercel.app/usersclass/${item._id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

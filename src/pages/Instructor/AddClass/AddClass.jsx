@@ -15,7 +15,7 @@ const AddClass = () => {
         const enroll = form.enroll.value;
         const newclass = {name, image, instructorName, email, abailableSeats, price, enroll};
 
-        fetch('http://localhost:5000/class',{
+        fetch('https://assignment-twelve-server-gilt.vercel.app/class',{
        method: 'POST',
       headers: {
         'content-type' : 'application/json'

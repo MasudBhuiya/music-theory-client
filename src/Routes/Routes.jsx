@@ -15,6 +15,7 @@ import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 import Register from "../pages/SignUp/Register";
 import AddClass from "../pages/Instructor/AddClass/AddClass";
 import MyClasses from "../pages/Instructor/MyClass/MyClasses";
+import Update from "../pages/Instructor/Update/Update";
 
 export const router = createBrowserRouter([
     {
@@ -49,20 +50,27 @@ export const router = createBrowserRouter([
       element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
       errorElement: <ErrorPage></ErrorPage>,
       children: [
+        
+        {
+          path: 'allusers',
+          element: <AllUsers></AllUsers>
+        },
         {
           path: 'myclasses',
           element: <MyClass></MyClass>
         },
         {
-          path: 'allusers',
-          element: <AllUsers></AllUsers>
-        },{
           path: 'addclass',
           element: <AddClass></AddClass>
         },
         {
           path: 'myaddedclass',
           element: <MyClasses></MyClasses>
+        },
+        {
+          path: 'update/:id',
+          element: <Update></Update>,
+          loader: ({params})=> fetch(`https://assignment-twelve-server-gilt.vercel.app/instructors/${params.id}`)
         }
       ]
     }

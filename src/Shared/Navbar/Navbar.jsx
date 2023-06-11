@@ -21,7 +21,7 @@ const Navbar = () => {
     <li><Link to="/">HOME</Link></li>
         <li><Link to="/allinstructors">INSTRUCTORS</Link></li>
     <li><Link to="/allclasses">CLASSES</Link></li>
-    {user &&  <li><Link to="/dashboard/myclasses">
+    {user &&  <li><Link to="/dashboard">
     <button className="btn">
     <span className="m-1"> <FaShoppingCart></FaShoppingCart></span>
   <div className="badge badge-secondary">+{classe?.length || 0}</div>

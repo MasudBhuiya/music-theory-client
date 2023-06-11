@@ -18,7 +18,7 @@ const Classes = () => {
 
 
     useEffect(()=>{
-        fetch('http://localhost:5000/class')
+        fetch('https://assignment-twelve-server-gilt.vercel.app/class')
         .then(res=> res.json())
         .then(data => {
             console.log(data);
@@ -42,7 +42,7 @@ const Classes = () => {
       // const status = 'selected'
       // const update = {enroll, availableSeats, status};
       
-      // fetch(`http://localhost:5000/class/${clas._id}`,{
+      // fetch(`https://assignment-twelve-server-gilt.vercel.app/${clas._id}`,{
       //   method: 'PUT',
       //       headers: {
       //           'content-type' : 'application/json'
@@ -54,7 +54,7 @@ const Classes = () => {
       //     console.log(data);
       //       if(data.modifiedCount > 0){
       //         //update state
-      //         fetch('http://localhost:5000/class',{
+      //         fetch('https://assignment-twelve-server-gilt.vercel.app/class',{
       //           method: 'GET'
       //         })
       //         .then(res=>res.json())
@@ -73,7 +73,7 @@ const Classes = () => {
       //     }
       //   )
         const datas = {availableSeats: clas.availableSeats, enroll: clas.enroll, image: clas.image, instructorName: clas.instructorName, name: clas.name, price: clas.price, totalSeats: clas.totalSeats, classId:clas._id, email: user.email}
-        fetch('http://localhost:5000/usersclass',{
+        fetch('https://assignment-twelve-server-gilt.vercel.app/usersclass',{
        method: 'POST',
       headers: {
         'content-type' : 'application/json'

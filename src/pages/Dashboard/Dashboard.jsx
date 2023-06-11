@@ -12,7 +12,7 @@ const Dashboard = () => {
     // console.log(role);
     const {user} = useContext(AuthContext);
     useEffect(()=>{
-      fetch(`http://localhost:5000/roleusers?email=${user.email}`)
+      fetch(`https://assignment-twelve-server-gilt.vercel.app/roleusers?email=${user.email}`)
       .then(res => res.json())
       .then(data => {
         setRoles(data)
@@ -44,8 +44,6 @@ const Dashboard = () => {
       <li><NavLink to="/dashboard/home"><FaHome></FaHome> Manage Classes</NavLink></li>
       <li><NavLink to="/dashboard/reservations"> Manage Users</NavLink></li>
       <li><NavLink to="/dashboard/history"> Manage Classes</NavLink></li>
-      <li><NavLink to="/dashboard/history"> Manage Classes</NavLink></li>
-      
       <li><NavLink to="/dashboard/allusers"><FaUsers></FaUsers>All Users</NavLink></li>
         </>
       }
