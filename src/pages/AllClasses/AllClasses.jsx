@@ -33,41 +33,41 @@ const AllClasses = () => {
         setDisable(false);
         return;
       }
-        const enroll = clas.enroll + 1;
-        const availableSeats = clas.availableSeats - 1;
-        const status = 'selected'
-        const update = {enroll, availableSeats, status};
+        // const enroll = clas.enroll + 1;
+        // const availableSeats = clas.availableSeats - 1;
+        // const status = 'selected'
+        // const update = {enroll, availableSeats, status};
         
-        fetch(`http://localhost:5000/class/${clas._id}`,{
-          method: 'PUT',
-              headers: {
-                  'content-type' : 'application/json'
-              },
-              body: JSON.stringify(update)
-        })
-        .then(res=>res.json())
-          .then(data=>{
-            console.log(data);
-              if(data.modifiedCount > 0){
-                //update state
-                fetch('http://localhost:5000/class',{
-                  method: 'GET'
-                })
-                .then(res=>res.json())
-          .then(data=>{
-            console.log(data);
-            setAllClasses(data);
-          })
-              }
-              Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'Your work has been saved',
-                showConfirmButton: false,
-                timer: 1500
-              })
-            }
-          )
+        // fetch(`http://localhost:5000/class/${clas._id}`,{
+        //   method: 'PUT',
+        //       headers: {
+        //           'content-type' : 'application/json'
+        //       },
+        //       body: JSON.stringify(update)
+        // })
+        // .then(res=>res.json())
+        //   .then(data=>{
+        //     console.log(data);
+        //       if(data.modifiedCount > 0){
+        //         //update state
+        //         fetch('http://localhost:5000/class',{
+        //           method: 'GET'
+        //         })
+        //         .then(res=>res.json())
+        //   .then(data=>{
+        //     console.log(data);
+        //     setAllClasses(data);
+        //   })
+        //       }
+        //       Swal.fire({
+        //         position: 'top-end',
+        //         icon: 'success',
+        //         title: 'Your work has been saved',
+        //         showConfirmButton: false,
+        //         timer: 1500
+        //       })
+        //     }
+        //   )
           const datas = {availableSeats: clas.availableSeats, enroll: clas.enroll, image: clas.image, instructorName: clas.instructorName, name: clas.name, price: clas.price, totalSeats: clas.totalSeats, classId:clas._id, email: user.email}
           fetch('http://localhost:5000/usersclass',{
          method: 'POST',
@@ -79,6 +79,13 @@ const AllClasses = () => {
         .then(res=> res.json())
           .then(data => {
               console.log(data);
+              Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Your selected class has been saved',
+                        showConfirmButton: false,
+                        timer: 1500
+                      })
           })
           
       }

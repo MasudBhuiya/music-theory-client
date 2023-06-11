@@ -9,14 +9,13 @@ const Dashboard = () => {
     const [classe] = useClass();
     const [roles, setRoles] = useState([])
     const [role, setRole] = useState({})
-    console.log(role);
+    // console.log(role);
     const {user} = useContext(AuthContext);
     useEffect(()=>{
       fetch(`http://localhost:5000/roleusers?email=${user.email}`)
       .then(res => res.json())
       .then(data => {
         setRoles(data)
-        // console.log(data)
       })
     },[])
 
