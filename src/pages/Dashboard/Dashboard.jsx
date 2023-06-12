@@ -3,6 +3,7 @@ import { FaBook, FaHome,  FaShoppingCart,  FaUsers, FaUtensils, FaWallet } from 
 import { Link, NavLink, Outlet } from 'react-router-dom';
 import useClass from '../../hooks/useClass';
 import { AuthContext } from '../../Providers/AuthProvider';
+import useTitle from '../../Shared/useTitle';
 
 
 const Dashboard = () => {
@@ -11,6 +12,7 @@ const Dashboard = () => {
     const [role, setRole] = useState({})
     // console.log(role);
     const {user} = useContext(AuthContext);
+    useTitle('Dashboard')
     useEffect(()=>{
       fetch(`https://assignment-twelve-server-gilt.vercel.app/roleusers?email=${user.email}`)
       .then(res => res.json())

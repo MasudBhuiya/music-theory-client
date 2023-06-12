@@ -2,10 +2,12 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../Providers/AuthProvider';
 import { FaEdit } from 'react-icons/fa';
 import { Link,  } from 'react-router-dom';
+import useTitle from '../../../Shared/useTitle';
 
 const MyClasses = () => {
     const {user} = useContext(AuthContext);
     const [addedclass, setAddedclass] = useState([]);
+    useTitle('My Classes')
 
 
     useEffect(()=>{

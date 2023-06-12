@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../Providers/AuthProvider';
 import Swal from 'sweetalert2';
+import useTitle from '../../../Shared/useTitle';
 
 const AddClass = () => {
     const {user} = useContext(AuthContext);
+    useTitle('Add Class')
     const handleSubmit = e =>{
         e.preventDefault();
         const form = e.target;

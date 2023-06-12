@@ -18,7 +18,7 @@ const ClassCart = ({clas, handleSelect , disables}) => {
     <p>Abailable Seats: {availableSeats}</p>
     <p>Price: {price}</p>
     <div className="card-actions justify-end">
-          <button disabled={disables} onClick={()=>handleSelect(clas)} className="btn btn-primary ">Please Confirm</button>
+          <button disabled={disables} onClick={()=>handleSelect(clas)} className="btn btn-primary ">Select</button>
     </div>
   </div>
 </div>

@@ -16,6 +16,7 @@ import Register from "../pages/SignUp/Register";
 import AddClass from "../pages/Instructor/AddClass/AddClass";
 import MyClasses from "../pages/Instructor/MyClass/MyClasses";
 import Update from "../pages/Instructor/Update/Update";
+import Payment from "../pages/Dashboard/Payment/Payment";
 
 export const router = createBrowserRouter([
     {
@@ -54,6 +55,10 @@ export const router = createBrowserRouter([
         {
           path: 'allusers',
           element: <AllUsers></AllUsers>
+        },
+        {
+          path: 'payment',
+          element:<Payment></Payment>
         },
         {
           path: 'myclasses',
