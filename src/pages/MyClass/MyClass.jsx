@@ -10,6 +10,7 @@ const MyClass = () => {
     // const [myClass, setMyClass] = useState();
     const {user} = useContext(AuthContext);
     const [classe, refetch] = useClass();
+    console.log(classe)
     useTitle('My Class')
 
     // useEffect(()=>{
@@ -32,7 +33,7 @@ const MyClass = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                
+                console.log(typeof(item._id))
                 fetch(`https://assignment-twelve-server-gilt.vercel.app/usersclass/${item._id}`, {
                     method: 'DELETE'
                 })
@@ -50,6 +51,7 @@ const MyClass = () => {
             }
         })
     }
+    
     const total = classe.reduce((sum, item) => item.price + sum, 0);
     return (
         <>
@@ -58,7 +60,6 @@ const MyClass = () => {
             <div className="uppercase h-[60px] flex justify-evenly items-center">
                 <h1 className="text-xl font-bold">Total Classes: {classe.length} </h1>
                 <h1 className="text-xl font-bold">Total Price: ${total}</h1>
-                <Link to={'/dashboard/payment'} className="btn bg-sky-500 hover:bg-sky-800 btn-sm text-white">PAY</Link>
             </div>
             <div>
                 <div className="overflow-x-auto ">
@@ -71,6 +72,7 @@ const MyClass = () => {
                                 <th>Class Name</th>
                                 <th>Instructor Name</th>
                                 <th>Price</th>
+                                <th>Payment</th>
                                 <th>Delete</th>
                             </tr>
                         </thead>
@@ -87,6 +89,7 @@ const MyClass = () => {
                                         <td className='text-black'>{item.name}</td>
                                         <td className="">{item.instructorName}</td>
                                         <td className="">{item.price}</td>
+                                        <td><Link to={`/dashboard/payment/${item._id}`}  className="btn bg-sky-500 hover:bg-sky-800 btn-sm text-white">PAY</Link></td>
                                         <td>
                                             <button onClick={() => handleDelete(item)} className="btn btn-ghost  text-white bg-red-500"><FaTrashAlt></FaTrashAlt></button>
                                         </td>

@@ -60,15 +60,15 @@ const Dashboard = () => {
         {/* Sidebar content here */}
       <li><NavLink to="/dashboard/history"><FaWallet></FaWallet> Payment History</NavLink></li>
       <li><NavLink to="/dashboard/myclasses"><FaShoppingCart></FaShoppingCart> My Selected Class<span className="badge badge-secondary">+{classe?.length || 0}</span></NavLink></li>
-      <li><NavLink to="/dashboard/history"> Enrolled Class</NavLink></li>
+      <li><NavLink to="/dashboard/enrolled"> Enrolled Class</NavLink></li>
         </>
       }
 
 
       <div className="divider"></div>
       <li ><NavLink to="/"><FaHome></FaHome>Home</NavLink></li>
-      <li><NavLink to="/menu"> Our Menu</NavLink></li>
-      <li ><NavLink to="/order/salad">Order Food</NavLink></li>
+      <li><NavLink to="/menu"> Our Class</NavLink></li>
+      <li ><NavLink to="/order/">Order </NavLink></li>
       <li><Link>Contact</Link></li>
     </ul>
   

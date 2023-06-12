@@ -6,7 +6,7 @@ import useTitle from "../../../Shared/useTitle";
 
 const Update = () => {
     const data = useLoaderData();
-    console.log(data)
+    // console.log(data)
     const navigate = useNavigate();
     useTitle('Update')
     const {price, _id, image, name, totalSeats} = data;
@@ -29,13 +29,14 @@ const Update = () => {
         .then(data => {
             console.log(data);
             if(data.modifiedCount > 0){
+              form.reset();
                 Swal.fire({
                     title: 'success!',
                     text: 'Data Added Successfully',
                     icon: 'success',
                     confirmButtonText: 'Cool'
                   })
-                  navigate('/mytoys')
+                  navigate('/dashboard/myaddedclass')
             }
 
         })

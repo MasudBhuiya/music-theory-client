@@ -57,10 +57,6 @@ export const router = createBrowserRouter([
           element: <AllUsers></AllUsers>
         },
         {
-          path: 'payment',
-          element:<Payment></Payment>
-        },
-        {
           path: 'myclasses',
           element: <MyClass></MyClass>
         },
@@ -71,6 +67,12 @@ export const router = createBrowserRouter([
         {
           path: 'myaddedclass',
           element: <MyClasses></MyClasses>
+        },
+        {
+          path: 'payment/:id',
+          element:<Payment></Payment>,
+          loader: ({params})=> fetch(`https://assignment-twelve-server-gilt.vercel.app/singleclass/${params.id}`)
+          // loader: ({params}) => console.log(params.id)
         },
         {
           path: 'update/:id',
