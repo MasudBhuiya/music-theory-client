@@ -62,7 +62,35 @@ const MyClass = () => {
                 <h1 className="text-xl font-bold">Total Price: ${total}</h1>
             </div>
             <div>
-                <div className="overflow-x-auto ">
+            <div className="md:hidden">
+            <table className="table  table-sm">
+
+              <tbody className="item-center">
+                {classe.map((user, index) => (
+                  <tr
+                    key={index}
+                    className={
+                      index % 2 === 0 ? " bg-slate-100 flex flex-col" : " bg-slate-50 flex flex-col"
+                    }
+                  >
+                    <td className="sm:text-xl flex"><span className='text-white font-bold w-[30%]  bg-sky-500 flex items-center justify-center -my-2 me-3'>Image: </span><img className='w-10 rounded-sm' src={user.image} alt="" /></td>
+                    <hr className="font-bold" />
+                    <td className="sm:text-xl flex"><span className='text-white font-bold w-[30%]  bg-sky-500 flex items-center justify-center -my-2 me-3'>Name: </span>{user.name}</td>
+                    <hr className="font-bold" />
+                    <td className="sm:text-xl flex"><span className='text-white font-bold w-[30%]  bg-sky-500 flex items-center justify-center -my-2 me-3'>Instructor Name: </span>{user.instructorName}</td>
+                    <hr className="font-bold" />
+                    <td className="sm:text-xl flex"><span className='text-white font-bold w-[30%]  bg-sky-500 flex items-center justify-center -my-2 me-3'>Price: </span>{user.price}</td>
+                    <hr className="font-bold" />
+                    <td className="sm:text-xl flex"><span className='text-white font-bold w-[30%]  bg-sky-500 flex items-center justify-center -my-2 me-3'>Payment: </span><p><Link to={`/dashboard/payment/${user.classId}`}  className="btn bg-sky-500 hover:bg-sky-800 btn-sm text-white">PAY</Link></p></td>
+                    <hr className="font-bold" />
+                    <td className="sm:text-xl flex"><span className='text-white font-bold w-[30%]  bg-sky-500 flex items-center justify-center -my-2 me-3'>Action: </span>Delete</td>
+                    <hr className="font-bold border-2 border-white" />
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+                <div className="hidden md:block ">
                     <table className="table w-[90%] mx-auto">
                         {/* head */}
                         <thead>
@@ -79,7 +107,10 @@ const MyClass = () => {
                         <tbody>
                             {
                                 classe?.map((item, index) =>
-                                    <tr key={item._id}>
+                                    <tr  key={index}
+                                    className={
+                                      index % 2 === 0 ? " bg-slate-100" : "bg-gray-50"
+                                    }>
                                         <td className=" text-center">
                                             {index + 1}.
                                         </td>
@@ -87,8 +118,8 @@ const MyClass = () => {
                                             <img className="w-12 h-12 rounded" src={item.image} alt="Avatar Tailwind CSS Component" />
                                         </td>
                                         <td className='text-black'>{item.name}</td>
-                                        <td className="">{item.instructorName}</td>
-                                        <td className="">{item.price}</td>
+                                        <td className="text-black">{item.instructorName}</td>
+                                        <td className="text-black">{item.price}</td>
                                         <td><Link to={`/dashboard/payment/${item.classId}`}  className="btn bg-sky-500 hover:bg-sky-800 btn-sm text-white">PAY</Link></td>
                                         <td>
                                             <button onClick={() => handleDelete(item)} className="btn btn-ghost  text-white bg-red-500"><FaTrashAlt></FaTrashAlt></button>
