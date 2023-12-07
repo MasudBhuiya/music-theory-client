@@ -17,6 +17,7 @@ import AddClass from "../pages/Instructor/AddClass/AddClass";
 import MyClasses from "../pages/Instructor/MyClass/MyClasses";
 import Update from "../pages/Instructor/Update/Update";
 import Payment from "../pages/Dashboard/Payment/Payment";
+import Contact from "../pages/Contact/Contact";
 
 export const router = createBrowserRouter([
     {
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
         {
           path: '/',
           element: <Home></Home>
+        },
+        {
+          path: '/contact',
+          element: <Contact></Contact>
         },
         {
           path: 'login',

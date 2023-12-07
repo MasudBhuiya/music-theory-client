@@ -1,12 +1,16 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../../../Providers/AuthProvider';
+
 
 const CheckoutForm = ({price}) => {
     const stripe = useStripe();
     const elements  = useElements();
     const [cardError, setCardError] = useState('')
+    const [clientSecret, setClientSecret] = useState('');
+    const {user} = useContext(AuthContext)
 
-    // useEffect(())
+   
 
     const handleSubmit = async(event) => {
         event.preventDefault();
@@ -32,9 +36,25 @@ const CheckoutForm = ({price}) => {
           setCardError('')
           console.log('payment Method',paymentMethod)
         }
+
+        const {paymentIntent, error: confirmError} = await stripe.confirmCardPayment(clientSecret, {
+          payment_method: {
+            card: card,
+            billing_details: {
+              email: user?.email || 'unknown',
+              name: user?.displayName || 'unknown'
+            },
+          },
+        }
+      );
+      if(confirmError){
+        console.log(confirmError)
+        setCardError(confirmError)
+      }
+      console.log(paymentIntent)
     }
 
-    
+   
 
     return (
         <>
@@ -55,7 +75,7 @@ const CheckoutForm = ({price}) => {
           },
         }}
       />
-      <button className='btn btn-primary mt-7' type="submit" disabled={!stripe}>
+      <button className='btn btn-primary mt-7' type="submit" disabled={!stripe || !clientSecret }>
         Pay
       </button>
     </form>

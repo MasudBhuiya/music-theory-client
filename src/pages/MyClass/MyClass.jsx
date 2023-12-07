@@ -89,7 +89,7 @@ const MyClass = () => {
                                         <td className='text-black'>{item.name}</td>
                                         <td className="">{item.instructorName}</td>
                                         <td className="">{item.price}</td>
-                                        <td><Link to={`/dashboard/payment/${item._id}`}  className="btn bg-sky-500 hover:bg-sky-800 btn-sm text-white">PAY</Link></td>
+                                        <td><Link to={`/dashboard/payment/${item.classId}`}  className="btn bg-sky-500 hover:bg-sky-800 btn-sm text-white">PAY</Link></td>
                                         <td>
                                             <button onClick={() => handleDelete(item)} className="btn btn-ghost  text-white bg-red-500"><FaTrashAlt></FaTrashAlt></button>
                                         </td>
