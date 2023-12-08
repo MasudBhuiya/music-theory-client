@@ -43,35 +43,35 @@ const Update = () => {
     }
     return (
         <div className="w-[60%] mx-auto mb-10 mt-10">
-          <h1 className="font-bold text-3xl text-center text-orange-500">Update Now!</h1>
+          <h1 className="font-bold text-3xl text-center text-sky-500">Update Now!</h1>
             <form onSubmit={handleUpdate}>
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Class Name</span>
+            <span className="label-text font-bold">Class Name</span>
           </label>
           <input type="text" defaultValue={name} placeholder="Class Name" name='name' className="input input-bordered" />
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Class Image</span>
+            <span className="label-text font-bold">Class Image</span>
           </label>
           <input type="url" defaultValue={image} placeholder="Photo URL" name='image' className="input input-bordered" />
         </div>
         <div className="form-control">
         <label className="label">
-            <span className="label-text">Price</span>
+            <span className="label-text font-bold">Price</span>
           </label>
           <input type="number" defaultValue={price} placeholder="Price" name='price' className="input input-bordered" />
         </div>
         <div className="form-control">
         <label className="label">
-            <span className="label-text">Total Seats</span>
+            <span className="label-text font-bold">Total Seats</span>
           </label>
           <input type="number" defaultValue={totalSeats} placeholder="Total Seats" name='seats' className="input input-bordered" />
         </div>
 
         <div className="form-control mt-6">
-          <input className="btn btn-warning bg-orange-500 text-white" type="submit" value='Update' name="" id="" />
+          <input className="btn bg-sky-500 border-sky-400 hover:bg-sky-700 text-white" type="submit" value='Update' name="" id="" />
         </div>
         </form>
         </div>

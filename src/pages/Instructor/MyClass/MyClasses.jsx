@@ -26,7 +26,38 @@ const MyClasses = () => {
                 <h1 className="text-xl font-bold">Total Classes: {addedclass.length} </h1>
             </div>
             <div>
-                <div className="overflow-x-auto ">
+
+            <div className="md:hidden">
+            <table className="table  table-sm">
+
+              <tbody className="item-center">
+                {addedclass.map((item, index) => (
+                  <tr
+                    key={index}
+                    className={
+                      index % 2 === 0 ? " bg-slate-100 flex flex-col" : " bg-slate-50 flex flex-col"
+                    }
+                  >
+                    <td className="sm:text-xl flex"><span className='text-white font-bold w-[30%]  bg-sky-500 flex items-center justify-center -my-2 me-3'># </span>{index + 1}.</td>
+                    <hr className="font-bold" />
+                    <td className="sm:text-xl flex"><span className='text-white font-bold w-[30%]  bg-sky-500 flex items-center justify-center -my-2 me-3'>Image: </span><img className='w-10 rounded-sm' src={item.image} alt="" /></td>
+                    <hr className="font-bold" />
+                    <td className="sm:text-xl flex"><span className='text-white font-bold w-[30%]  bg-sky-500 flex items-center justify-center -my-2 me-3'>Class Name: </span>{item.name}</td>
+                    <hr className="font-bold" />
+                    <td className="sm:text-xl flex"><span className='text-white font-bold w-[30%]  bg-sky-500 flex items-center justify-center -my-2 me-3'>Total Enrolled Class: </span>{item.enroll}</td>
+                    <hr className="font-bold" />
+                    <td className="sm:text-xl flex"><span className='text-white font-bold w-[30%]  bg-sky-500 flex items-center justify-center -my-2 me-3'>Price: </span>{item.price}</td>
+                    <hr className="font-bold" />
+                    <td className="sm:text-xl flex"><span className='text-white font-bold w-[30%]  bg-sky-500 flex items-center justify-center -my-2 me-3'>Update: </span><span>
+                                            <Link to={(`/dashboard/update/${item._id}`)} className="btn btn-sm "><FaEdit></FaEdit></Link>
+                                        </span></td>
+                    <hr className="font-bold border-2 border-white" />
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+                <div className="hidden md:block ">
                     <table className="table w-[90%] mx-auto">
                         {/* head */}
                         <thead>

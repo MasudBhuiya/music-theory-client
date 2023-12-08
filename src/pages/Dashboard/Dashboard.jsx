@@ -43,9 +43,9 @@ const Dashboard = () => {
       {
           role.role === 'admin' && <>
         {/* Sidebar content here */}
-      <li><NavLink to="/dashboard/reservations"> Manage Users</NavLink></li>
+      {/* <li><NavLink to="/dashboard/reservations"> Manage Users</NavLink></li> */}
       <li><NavLink to="/dashboard/history"> Manage Classes</NavLink></li>
-      <li><NavLink to="/dashboard/allusers"><FaUsers></FaUsers>All Users</NavLink></li>
+      <li><NavLink to="/dashboard/allusers"><FaUsers></FaUsers>Manage Users</NavLink></li>
         </>
       }
       {

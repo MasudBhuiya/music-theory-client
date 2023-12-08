@@ -5,7 +5,7 @@ const About = () => {
         <div className='pt-28 max-w-screen-xl mx-auto'>
             <h1 className="text-5xl text-center font-bold mb-16">About <span className="text-sky-400">Us!</span></h1>
             <div className='grid md:grid-cols-2 justify-between items-center'>
-                <img className='w-full sm:w-[541px] rounded' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk4YZK7dsy1up0qO6FeEYqrKl4en12LObRkmVUQR5cNnlg--uC24D9vloywVHOnKd9OSQ&usqp=CAU" alt="" />
+                <img className='w-full sm:w-[541px] rounded' src="https://images.pexels.com/photos/1327430/pexels-photo-1327430.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" />
                 
                     <div>
                         <h1 className='text-lg font-bold text-sky-400 mb-4'>What About Us?</h1>
